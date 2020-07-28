@@ -21,7 +21,7 @@ const { MongoClient } = require("mongodb");
 var MongoStore = require('connect-mongo')(session);
 var methodOverride = require('method-override');
 
-mongoose.connect('mongodb+srv://thiru:2069835@cluster0.sbzux.mongodb.net/v7task?retryWrites=true&w=majority',{useNewUrlParser: true,useUnifiedTopology :true});
+mongoose.connect('mongodb://localhost/mydb',{useNewUrlParser: true,useUnifiedTopology :true});
 require('./config/passport.js')(passport); 
 
 var db = mongoose.connection;
