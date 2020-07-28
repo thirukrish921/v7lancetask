@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="projectRtc">
+  <head>
+   
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keyword" content="HTML, CSS, JAVASCRİPT">
+    <meta name="author" content="">
+    <title>Uploaded VIdeo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="javascripts/adapter.js"></script>
+	<script type="text/javascript" src="javascripts/rtcClient.js"></script>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js">
+	</script>
+	<script type="text/javascript" src="javascripts/app.js"></script>
+  </head>
+  <body><br><br><br>
+	<div class="container">
+		
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+			
+				<div class="navbar-header">
+					
+			
+					<ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/student">Home</a></li>
+                            <li><a href="/viewvideo">View videos</a></li>
+                            <li><a href="/viewlive">View Live Stream</a></li>
+                            
+                            <li><a href="/stulogout">Logout</a></li>
+                        </ul>
+                    </ul>
+				</div>
+			
+			</div>
+            </nav>
+            <center>
+			<div class="">
+                <% rows.forEach(function(rows) { %>
+                    <video width="320" height="240" controls controlsList="nodownload"><source src="videos/<%=rows.name%>" type="video/mp4">
+                       
+                       </video><br><h5>description : <%=rows.description%> </h5> 
+                        
+                     <form id="comform" action="/addcomm">
+                      <input type="hidden" value="<%=rows.id%>" name="id"/>
+                      <input type="text" name="comment" />
+                        <input type="submit" name="submit" value="Add Comment"/>
+
+                     </form>
+                        <br>
+                      
+                      
+                    <% }); %>
+
+                    Videos Closed!
+            </div>
+</div>
+</center>
+<script>
+    $("#comform").submit(function(e) {
+
+e.preventDefault(); 
+
+var form = $(this);
+var url = form.attr('action');
+
+$.ajax({
+	   type: "POST",
+	   url: url,
+	   data: form.serialize(), 
+	   success: function(data)
+	   { 
+		  
+		  
+	   }
+	 });
+
+$('#comform').trigger("reset");
+alert("Comment Added");
+});
+
+
+</script>
+  	
+  </body>
+</html>

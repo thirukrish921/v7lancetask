@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="projectRtc">
+  <head>
+   
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keyword" content="HTML, CSS, JAVASCRİPT">
+    <meta name="author" content="">
+	<title>Live</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+ 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="javascripts/adapter.js"></script>
+	<script type="text/javascript" src="javascripts/rtcClient.js"></script>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js">
+	</script>
+	<script type="text/javascript" src="javascripts/apprtc.js"></script>
+  </head>
+  <body><br><br><br>
+	<div class="container">
+		
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+			
+				<div class="navbar-header">
+					
+			
+					<ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/student">Home</a></li>
+                            <li><a href="/viewvideo">View videos</a></li>
+                            <li><a href="/viewlive">View Live Stream</a></li>
+                            
+                            <li><a href="/stulogout">Logout</a></li>
+                        </ul>
+                    </ul>
+				</div>
+			
+			</div>
+            </nav>
+            <center>
+			<div class="">
+                <% rows.forEach(function(rows) { %>
+                    <h5><a href="<%=rows.stream_url%>"><%=rows.stream_url%></a></h5>-Stream by <h4><%=rows.trainee_name%></h4>    
+                <br>
+                 <% }); %>
+                 Streams end!
+            </div>
+</div>
+</center>
+
+  	
+  </body>
+</html>

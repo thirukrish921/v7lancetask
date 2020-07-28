@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keyword" content="HTML, CSS, JAVASCRİPT">
+    <meta name="author" content="">
+	<title>UPloaded</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	
+	<title></title>
+</head>
+<body><br><br><br>
+	<div class="container">
+		<div class="">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                
+                    <div class="navbar-header">
+                       
+                
+                        <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/upload">Upload video</a></li>
+                                <li><a href="/live">Live Stream</a></li>
+                                <li><a href="/loaded">View Uploads</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                            
+                        </ul>
+                    </div>
+                
+                </div>
+                </nav>
+
+               <div class="">
+<center>
+                <% rows.forEach(function(rows) { %>
+                 <video width="320" height="240" controls><source src="videos/<%=rows.name%>" type="video/mp4">
+                    
+                    </video><br><h5>description : <%=rows.description%> </h5> <form method="post" action="/edit">
+                    <input type="hidden" name="vid_id" value="<%=rows.id%>"/><input type="submit" value="Edit Description"/>
+                    </form><br>
+                    <form method="post" action="/comments"><input type="hidden" name="vid_id" value="<%=rows.id%>"/><input type="submit" value="VIEW COMMENTS"/></form>
+                    <bR><form action="/delete" method="POST"><input type="hidden" value="<%=rows.id%>" name="del_id"/>
+                        <input type="hidden" name="del_name" value="<%=rows.name%>"/>
+                        <input type="submit" value="DELETE" name="delete"/></form>
+                 <% }); %>
+                End of Uploaded Videos..
+		</div></div></center>
+	</div>
+</body>
+</html>

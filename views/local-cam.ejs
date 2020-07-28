@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="projectRtc">
+  <head>
+    <title>Live</title>
+    <base href="/" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="javascripts/adapter.js"></script>
+	<script type="text/javascript" src="javascripts/rtcClient.js"></script>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js">
+	</script>
+	<script type="text/javascript" src="javascripts/app.js"></script>
+  </head>
+  <body><center>
+<div class="localStream" ng-controller="LocalStreamController as localStream">
+	
+	<video id="localVideo" muted="muted" autoplay="true"></video><br>
+	<div id="hide-div">
+	<button type="submit" id="hide" ng-click="localStream.toggleCam()" ng-show="!showDiv" name="vidstat">{{ localStream.cameraIsOn ? 'Stop' : 'Start Streaming' }}</button>
+</div><form method="post" action="/clearstreams">
+			
+		
+			
+		<input type="submit" name="submit" value="stop"/>
+		</form>
+	<br><br>
+	<div id="gen">
+		<div ng-show="localStream.cameraIsOn">		
+			<p><%= share %>:</p>
+			<a>{{ localStream.link }}</a><br><br>
+		</div>
+	<li ng-click="rtc.loadData()" style="width: 240px">
+        <a href>Double tap to View Link</a>
+    </li></div>
+</div>
+<br>
+<div id="input">
+	<br>
+	<form id="idForm" action="/sendlivelink"><label for="clas">Choose Class:</label>
+	<select id="class" name="class">
+	  <option value="1">Class 1</option>
+	  <option value="2">Class 2</option>
+	  <option value="3">Class 3</option>
+	  
+	</select><br><br>
+	Link:<input type="text" name="link" id="link"/><br><br>
+	<input type="submit" id="sub" name="submit" ></form>
+	
+</div>
+
+</center>
+<script>
+	$('#gen').hide();
+	$('#input').hide();
+	$('#hide').click(function() {
+  $('#hide-div').hide();
+  $('#gen').show();
+  $('#input').show();
+});
+$("#idForm").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+var form = $(this);
+var url = form.attr('action');
+$('#input').hide();
+$.ajax({
+	   type: "POST",
+	   url: url,
+	   data: form.serialize(), // serializes the form's elements.
+	   success: function(data)
+	   { 
+		   
+		  
+	   }
+	 });
+
+
+});
+
+
+
+</script>
+</body>
+
+</html>

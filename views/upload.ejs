@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keyword" content="HTML, CSS, JAVASCRİPT">
+    <meta name="author" content="">
+	<title>Upload</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	
+  
+    <style>
+        #uploadForm{
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        input.btn{
+            flex: 0.8;
+        }
+        button.btn{
+            flex: 0.15;
+        }
+    </style>
+</head>
+<body><br><br><br>
+	<div class="container">
+		<div class="">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                
+                    <div class="navbar-header">
+                       
+                
+                        <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/upload">Upload video</a></li>
+                                <li><a href="/live">Live Stream</a></li>
+                                <li><a href="/loaded">View Uploads</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                
+                </div>
+                </nav>
+                <div class="container"><br><br><center>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <input type="file" accept="video/*" name="files"
+                        class="btn btn-primary" id="file"><br>
+                         DESCRIPTION :<input type="text" name="descript" required/><br><br>
+                         <h5>Choose Audience:
+                         </h5>
+                        <input type="radio" value="1" name="class"/>Class 1
+                        <br><input type="radio" value="2" name="class"/>Class 2
+                        <br><input type="radio" value="3" name="class"/>class 3<br><br>
+                        <button class="btn btn-primary" type="submit" style="border-radius: 4px;">
+                            Upload
+                        </button>
+                    </form></center>
+                </div>
+                <script type="text/javascript">
+                    document.getElementById("file").value = "";
+                </script>
+		</div>
+	</div>
+</body>
+</html>

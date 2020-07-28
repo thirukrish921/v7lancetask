@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keyword" content="HTML, CSS, JAVASCRİPT">
+    <meta name="author" content="">
+	<title>Welcome Home</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	
+	<title></title>
+</head>
+<body><br><br><br>
+	<div class="container">
+		
+			<nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                
+                    <div class="navbar-header">
+                        
+                
+                        <ul class="nav navbar-nav">
+							<li><a href="/student">Home</a></li>
+                            <li><a href="/viewvideo">View video</a></li>
+							<li><a href="/viewlive">View Live Stream</a></li>
+                            <li><a href="/stulogout">Logout</a></li>
+                        </ul>
+                    </div>
+                
+                </div>
+				</nav><center>
+				<div class="">
+			<% rows.forEach(function(rows) { %>
+				<h2>Hi,<%=rows.username%>  </h2><br>
+				
+		 	<% }); %>
+		</div></center>
+	</div>
+</body>
+</html>

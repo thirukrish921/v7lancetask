@@ -1,0 +1,41 @@
+{
+  "name": "task1",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "1"
+  ],
+  "author": "thiru",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "*",
+    "cookie-session": "^1.4.0",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.3",
+    "express": "*",
+    "express-session": "*",
+    "formidable": "^1.2.2",
+    "json-socket": "*",
+    "method-override": "^2.3.10",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.26",
+    "morgan": "*",
+    "multer": "^1.4.2",
+    "mysql": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.2.0"
+  }
+}
